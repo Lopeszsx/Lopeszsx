@@ -1,0 +1,34 @@
+import requests
+
+# Configurações
+GITHUB_TOKEN = "seu_token_de_acesso"  # Substitua pelo seu token de acesso pessoal
+GITHUB_USERNAME = "seu_usuario"  # Substitua pelo seu nome de usuário no GitHub
+
+# Nome e descrição do repositório
+repo_name = "nome-do-repositorio"
+repo_description = "Descrição do repositório criado via API."
+
+# Endpoint da API do GitHub para criar repositórios
+url = "https://api.github.com/user/repos"
+
+# Cabeçalhos e dados para a requisição
+headers = {
+    "Authorization": f"Bearer {GITHUB_TOKEN}",
+    "Accept": "application/vnd.github.v3+json"
+}
+
+data = {
+    "name": repo_name,
+    "description": repo_description,
+    "private": False  # Defina como True para criar um repositório privado
+}
+
+# Enviando a requisição POST para criar o repositório
+response = requests.post(url, headers=headers, json=data)
+
+# Verificando a resposta
+if response.status_code == 201:
+    print(f"Repositório '{repo_name}' criado com sucesso!")
+else:
+    print(f"Erro ao criar o repositório: {response.status_code}")
+    print(response.json())
