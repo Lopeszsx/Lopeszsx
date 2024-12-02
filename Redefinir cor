@@ -1,0 +1,20 @@
+/* Redefinindo cores no projeto */
+:root {
+    --primary-color: #3498db; /* Azul padrão */
+    --secondary-color: #2ecc71; /* Verde padrão */
+    --background-color: #f4f4f4; /* Cor de fundo padrão */
+    --text-color: #333; /* Cor do texto padrão */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--secondary
